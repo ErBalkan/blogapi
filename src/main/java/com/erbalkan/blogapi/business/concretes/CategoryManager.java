@@ -2,7 +2,6 @@ package com.erbalkan.blogapi.business.concretes;
 
 
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -33,7 +32,6 @@ public class CategoryManager implements CategoryService {
     public IResult add(CategoryCreateCommand dto) {
         Category category = new Category();
         category.setName(dto.getName());
-        category.setCreatedAt(dto.getCreatedAt());
         _categoryRepository.save(category);
         return new SuccessResult("Kategori başarıyla eklendi.");
     }
@@ -45,7 +43,7 @@ public class CategoryManager implements CategoryService {
             return new ErrorResult("Kategori bulunamadı!");
         }
         category.setName(dto.getName());
-        category.setUpdatedAt(LocalDateTime.now());
+        _categoryRepository.save(category);
         return new SuccessResult("Kategori başarıyla güncellendi.");
     }
 

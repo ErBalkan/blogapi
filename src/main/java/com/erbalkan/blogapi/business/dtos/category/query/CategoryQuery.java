@@ -17,4 +17,5 @@ import lombok.Setter;
 public class CategoryQuery extends BaseDto {
     private Long id;
     private String name;
+    private List<PostQuery> posts;
 }
